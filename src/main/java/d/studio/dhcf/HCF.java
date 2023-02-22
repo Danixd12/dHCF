@@ -22,7 +22,7 @@ public final class HCF extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        logger.info(ChatColor.BLACK + "dHCF Plugin is enabled!");
+        logger.info("[dHCF] Plugin is enabled!");
 
         //commands
         new CommandHandler();
@@ -33,7 +33,7 @@ public final class HCF extends JavaPlugin {
         //new CommandHandler().findCommandByName("test");
 
         //config
-        new ConfigHandler().loadConfig("config.yml", "data");
+        new ConfigHandler();
 
     }
 

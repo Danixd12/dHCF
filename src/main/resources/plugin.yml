@@ -4,5 +4,5 @@ main: d.studio.dhcf.HCF
 api-version: 1.19
 authors: [ DaniCraftingYT ]
 commands:
-  test:
-    description: Test command
+  createFaction:
+    description: Create a faction
