@@ -19,12 +19,9 @@ public class PlayerJoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) throws IOException, InvalidConfigurationException {
         Player player = event.getPlayer();
 
+        configHandler.getConfig("factions.yml", "data")
+                .set("users." + player.getUniqueId() + ".name", player.getName());
 
-        if(player.hasPlayedBefore()) {
-
-            configHandler.getConfig("users.yml", "data");
-
-        }
     }
 
 }

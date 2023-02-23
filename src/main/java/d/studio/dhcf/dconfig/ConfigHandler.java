@@ -64,39 +64,15 @@ public class ConfigHandler {
      * @return config
      */
     public FileConfiguration getConfig(String name, String path) throws IOException {
+
         FileConfiguration data = YamlConfiguration.loadConfiguration(new File(Bukkit.getPluginManager().getPlugin("dHCF").getDataFolder()+"/"+path, name));
-        data.save(new File(Bukkit.getPluginManager().getPlugin("dHCF").getDataFolder()+"/"+path, name));
+
+        try {
+            data.save(new File(Bukkit.getPluginManager().getPlugin("dHCF").getDataFolder()+"/"+path, name));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return data;
     }
 
 }
-
-
-/*
- public void loadConfig(String name, FileConfiguration fileConfiguration){
-        File file = new File(Bukkit.getPluginManager().getPlugin("dHCF").getDataFolder(), "config.yml");
-        File factionsfile = new File(Bukkit.getPluginManager().getPlugin("dHCF").getDataFolder() + "/data", "factions.yml");
-        File englishlangfile = new File(Bukkit.getPluginManager().getPlugin("dHCF").getDataFolder() + "/lang", "en_us.yml");
-
-
-        config = new YamlConfiguration();
-        if(file.exists() && factionsfile.exists()){
-            try {
-                config.load(file);
-                config.load(factionsfile);
-            } catch (IOException | InvalidConfigurationException e) {
-                e.printStackTrace();
-            }
-        } else if(!factionsfile.exists()){
-            factionsfile.getParentFile().mkdir();
-
-            Bukkit.getPluginManager().getPlugin("dHCF").saveResource("data/factions.yml", false);
-         } else if(!file.exists()){
-            file.getParentFile().mkdirs();
-            Bukkit.getPluginManager().getPlugin("dHCF").saveResource("config.yml", false);
-        } else if(!englishlangfile.exists()){
-            englishlangfile.getParentFile().mkdirs();
-            Bukkit.getPluginManager().getPlugin("dHCF").saveResource("lang/en_us.yml", false);
-        }
-    }
- */
